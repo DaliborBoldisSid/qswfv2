@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash($env:PATH += \";C:\\Users\\boldi\\.npm-global\")",
+      "Bash(claude --version:*)",
+      "Bash(\"C:\\Users\\boldi\\.npm-global\\claude.cmd\" --version)",
+      "Bash(powershell.exe -Command \"[Environment]::SetEnvironmentVariable(''Path'', [Environment]::GetEnvironmentVariable(''Path'', ''User'') + '';C:\\Users\\boldi\\.npm-global'', ''User'')\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable(''''Path'''', ''''User'''')\")",
+      "Bash(powershell.exe -Command \"claude --version\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable(''Path'', ''User'')\")",
+      "Bash(\"C:\\Users\\boldi\\.npm-global\\claude.cmd\" --help)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_close",
+      "Bash(npm test)",
+      "Bash(node tests/test-reduction-fix.js:*)",
+      "Bash(node tests/test-days-active-fix.js:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(./gradlew assembleDebug:*)",
+      "Bash(./gradlew clean:*)",
+      "Bash(for dir in mdpi hdpi xhdpi xxhdpi xxxhdpi)",
+      "Bash(do cp public/icon-512.png app/src/main/res/mipmap-$dir/ic_maskable.png)",
+      "Bash(done)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
+}

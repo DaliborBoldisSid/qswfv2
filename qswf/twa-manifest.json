@@ -1,0 +1,27 @@
+{
+	"packageId": "com.quitsmoking.app",
+	"host": "daliborboldissid.github.io",
+	"name": "Quit Smoking & Vaping",
+	"launcherName": "QuitSmoking",
+	"display": "standalone",
+	"themeColor": "#10b981",
+	"navigationColor": "#10b981",
+	"backgroundColor": "#ffffff",
+	"enableNotifications": true,
+	"startUrl": "/qswf/",
+	"iconUrl": "https://daliborboldissid.github.io/qswf/icon-512.png",
+	"maskableIconUrl": "https://daliborboldissid.github.io/qswf/icon-512.png",
+	"splashScreenFadeOutDuration": 300,
+	"signingKey": {
+		"path": "./android.keystore",
+		"alias": "android"
+	},
+	"appVersionName": "1.0.1",
+	"appVersionCode": 2,
+	"shortcuts": [],
+	"generatorApp": "bubblewrap-cli",
+	"webManifestUrl": "https://daliborboldissid.github.io/qswf/manifest.webmanifest",
+	"fallbackType": "customtabs",
+	"enableSiteSettingsShortcut": true,
+	"orientation": "portrait"
+}

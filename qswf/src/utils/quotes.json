@@ -1,0 +1,362 @@
+{
+  "motivational_quotes": [
+    "Every craving is a test. You either pass it or start over. Make your lungs proud, not your excuses.",
+    "You’re not quitting nicotine, you’re quitting weakness. There’s a difference.",
+    "If you can light one up, you can also put it down. Discipline’s the real addiction here.",
+    "You’ve survived worse than a damn craving. Act like it.",
+    "The cigarette doesn’t own you unless you hand it the leash.",
+    "Every day without smoke is another day you’re winning against your old self.",
+    "You can’t build a strong future if you’re still breathing in your past.",
+    "That nicotine buzz ain’t power. Self-control is.",
+    "Your lungs are begging you for mercy. Don’t make them wait another year.",
+    "You don’t need a lighter. You need a plan.",
+    "Pain is temporary. Regret’s a full-time job.",
+    "Quit talking about quitting. Do it once and don’t look back.",
+    "You got through withdrawals? You can get through anything.",
+    "Cravings fade. Pride lasts.",
+    "Nicotine doesn’t solve stress, it *is* stress in disguise.",
+    "Don’t call it quitting. Call it reclaiming your lungs.",
+    "The first day’s the hardest. The rest is just repetition.",
+    "You already paid for your last pack — with your health. Enough’s enough.",
+    "Every puff is a loan your body’s gotta pay back with interest.",
+    "You say you’re strong? Prove it by saying no when it burns to say yes.",
+    "A man’s not defined by his habits but by the ones he breaks.",
+    "Courage ain’t loud. It’s quiet when you throw the lighter in the trash.",
+    "You’re not fighting nicotine — you’re fighting comfort.",
+    "If you can control this, you can control damn near anything.",
+    "Success smells better than smoke ever did.",
+    "Don’t wait for Monday. Nicotine doesn’t care what day it is.",
+    "The real high is waking up free.",
+    "The world doesn’t owe you a smoke break.",
+    "Excuses are just cravings in a tuxedo.",
+    "Discipline tastes bitter, but it lasts longer than any cigarette.",
+    "The pack doesn’t love you back.",
+    "You’ll never miss the taste of smoke, just the feeling of weakness leaving your body.",
+    "The lungs you save might be your kid’s role model.",
+    "Every time you say no, your willpower grows muscle.",
+    "Comfort kills more dreams than fear ever did.",
+    "If you’re tired of starting over, stop giving up.",
+    "Freedom’s not free — it costs your cravings.",
+    "You’re not quitting a habit; you’re burying a parasite.",
+    "Your future self is watching. Don’t disappoint the boss.",
+    "Cigarettes are thieves — they just steal slow.",
+    "You got one body. Don’t trade it for smoke.",
+    "A strong mind doesn’t need a fix. It creates its own calm.",
+    "Your lungs ain’t ashtrays. Treat them like they’re gold.",
+    "Quitting’s not about perfection — it’s about direction.",
+    "The hardest day quitting still beats your easiest day smoking.",
+    "You were born breathing clean air. Go back to that.",
+    "Stop feeding the addiction that’s trying to bury you.",
+    "It’s not weakness to want a smoke. It’s weakness to take one.",
+    "Control your impulses before they control your life.",
+    "Winners quit things that drag them down.",
+    "This isn’t about losing nicotine. It’s about gaining control.",
+    "A craving lasts five minutes. Pride lasts forever.",
+    "You can’t crave what you kill. Kill the habit.",
+    "No one ever looked strong with a cigarette hanging out their mouth.",
+    "You can’t outsmart cravings, but you can outlast them.",
+    "A man who conquers himself needs no smoke.",
+    "You wanna breathe easy? Then start earning it.",
+    "This isn’t a diet. It’s a declaration of war against addiction.",
+    "Your health is the real wealth — don’t spend it on smoke.",
+    "If it doesn’t serve you, it’s using you.",
+    "One puff closer to regret. One ‘no’ closer to freedom.",
+    "You can’t breathe victory if you’re still inhaling poison.",
+    "Addiction whispers, ‘just one more.’ Strength says, ‘never again.’",
+    "Every victory over nicotine is a middle finger to the past.",
+    "Your body isn’t a chimney — stop treating it like one.",
+    "You can’t have progress and poison in the same hand.",
+    "Breaking this habit isn’t a punishment — it’s liberation.",
+    "There’s no patch for discipline. You build it.",
+    "A real comeback starts with one decision: no more smoke.",
+    "The longer you hold out, the weaker the habit gets.",
+    "You can’t fix your lungs, but you can stop breaking them.",
+    "Every craving you beat makes you stronger than yesterday.",
+    "Nicotine doesn’t relax you. It just resets your withdrawal clock.",
+    "You’re not missing out. You’re moving on.",
+    "Don’t quit for fear. Quit for pride.",
+    "Your willpower is the only patch that never falls off.",
+    "The air tastes better when you earn it clean.",
+    "Addiction is a liar. Don’t negotiate with it.",
+    "No one ever died wishing they had one more cigarette.",
+    "One day, the cravings will stop — if you don’t stop first.",
+    "Be the person your old self was too weak to be.",
+    "You don’t need smoke to prove you’re tough.",
+    "You’re either feeding your addiction or starving it. Pick one.",
+    "The habit dies the same way it was built — one act at a time.",
+    "Your future’s choking behind that cigarette. Set it free.",
+    "Breathing easy beats burning out.",
+    "You can’t inhale progress if your lungs are full of the past.",
+    "You got time to smoke? You got time to win instead.",
+    "The best victory is the one no one sees — when you say no.",
+    "Cigarettes don’t fix problems; they just hide them in the fog.",
+    "Your lungs have been your soldiers. Give them peace.",
+    "You’re not losing comfort — you’re gaining clarity.",
+    "Stop saying you’ll quit. Start saying you already did.",
+    "The real addiction is excuses. Quit those too.",
+    "Every craving survived is a scar of victory.",
+    "Smoke is just weakness trying to escape. Don’t let it back in.",
+    "Your last puff should be your proudest one — the one you refuse.",
+    "You’ll never regret quitting, but you’ll always regret waiting.",
+    "Quitting isn’t about willpower. It’s about refusing to be owned.",
+    "You don’t owe nicotine a damn thing.",
+    "You beat the craving once. Do it again. And again. Until it dies."
+  ],
+  "questions_with_facts": [
+    {
+      "question": "What’s your biggest reason for quitting?",
+      "user_answer": "",
+      "fun_fact": "People who define a personal 'why' are 3x more likely to stay smoke-free after six months."
+    },
+    {
+      "question": "How many cigarettes or vapes do you currently use per day?",
+      "user_answer": "",
+      "explanation": "Knowing your baseline helps your app’s reduction algorithm target your dependency patterns precisely."
+    },
+    {
+      "question": "When do you crave nicotine the most — morning, stress, or boredom?",
+      "user_answer": "",
+      "fun_fact": "Cravings peak in habitual moments — the brain links nicotine to daily triggers, not just chemical need."
+    },
+    {
+      "question": "How many times have you tried quitting before?",
+      "user_answer": "",
+      "fun_fact": "The average smoker makes 5–7 attempts before quitting for good. Each try builds stronger resistance."
+    },
+    {
+      "question": "What do you usually do when a craving hits?",
+      "user_answer": "",
+      "fun_fact": "Replacing smoking rituals with simple habits like deep breathing reduces relapse risk by 40%."
+    },
+    {
+      "question": "Who around you supports your decision to quit?",
+      "user_answer": "",
+      "fun_fact": "Social support doubles your chance of long-term success. Even digital accountability works."
+    },
+    {
+      "question": "Do you notice patterns between stress and smoking?",
+      "user_answer": "",
+      "fun_fact": "Nicotine spikes adrenaline, which actually increases stress — it’s a chemical trick, not relief."
+    },
+    {
+      "question": "What do you think triggers your cravings most?",
+      "user_answer": "",
+      "explanation": "Understanding triggers lets you replace habits instead of fighting them head-on."
+    },
+    {
+      "question": "How long do you want your quitting plan to last?",
+      "user_answer": "",
+      "fun_fact": "Gradual reduction leads to higher adherence — quick cuts often trigger stronger withdrawal."
+    },
+    {
+      "question": "What’s your ultimate reward for quitting?",
+      "user_answer": "",
+      "fun_fact": "Reward-based reinforcement activates dopamine, turning your goal into a self-reinforcing loop."
+    },
+    {
+      "question": "Do you prefer cold turkey or gradual reduction?",
+      "user_answer": "",
+      "fun_fact": "Gradual reducers show 30% higher success rates in PWA-tracked quitting plans."
+    },
+    {
+      "question": "How do you deal with stress without nicotine?",
+      "user_answer": "",
+      "explanation": "Identifying alternatives before stress hits keeps your willpower fresh when you need it most."
+    },
+    {
+      "question": "What’s your proudest achievement so far in this journey?",
+      "user_answer": "",
+      "fun_fact": "Acknowledging small wins boosts dopamine — the same chemical nicotine hijacks."
+    },
+    {
+      "question": "Have you noticed any improvements in your health yet?",
+      "user_answer": "",
+      "fun_fact": "Blood oxygen levels improve within 24 hours of quitting, and taste returns in days."
+    },
+    {
+      "question": "What time of day are your cravings weakest?",
+      "user_answer": "",
+      "explanation": "Use your strong hours to build streaks that carry you through the weak ones."
+    },
+    {
+      "question": "Do you track how much money you save each week?",
+      "user_answer": "",
+      "fun_fact": "Smokers spend an average of $3,000 yearly. Watching the savings grow keeps you sharp."
+    },
+    {
+      "question": "What would you do with the money saved from quitting?",
+      "user_answer": "",
+      "fun_fact": "Visualizing tangible rewards links quitting to lifestyle upgrades — not deprivation."
+    },
+    {
+      "question": "Do you believe you can live completely smoke-free?",
+      "user_answer": "",
+      "explanation": "Belief isn’t fluff — it’s the switch that decides whether the brain fights or cooperates."
+    },
+    {
+      "question": "Who’s the first person you’d tell when you finally quit?",
+      "user_answer": "",
+      "fun_fact": "Public accountability increases success — people rarely relapse after declaring victory out loud."
+    },
+    {
+      "question": "Do you track your achievements in the app?",
+      "user_answer": "",
+      "explanation": "The achievement system rewires your reward loop — each unlock is a psychological upgrade."
+    },
+    {
+      "question": "What’s harder for you to quit — cigarettes or vapes?",
+      "user_answer": "",
+      "fun_fact": "Vape nicotine hits faster, but cigarettes carry ritual dependency. Know which beast you’re fighting."
+    },
+    {
+      "question": "What’s your morning routine like without a smoke?",
+      "user_answer": "",
+      "fun_fact": "Replacing the first smoke with hydration or exercise reprograms morning dopamine cycles."
+    },
+    {
+      "question": "How do you feel after skipping your usual smoke time?",
+      "user_answer": "",
+      "explanation": "That discomfort is withdrawal rewiring — every skipped session weakens nicotine’s control."
+    },
+    {
+      "question": "Do you use nicotine replacement therapy?",
+      "user_answer": "",
+      "fun_fact": "NRT doubles success rates if paired with habit tracking and reduction pacing."
+    },
+    {
+      "question": "Do you believe quitting gradually or fast works better for you?",
+      "user_answer": "",
+      "fun_fact": "Personalized pacing based on comfort improves quit longevity — it’s about adaptation, not speed."
+    },
+    {
+      "question": "How do you reward yourself for progress?",
+      "user_answer": "",
+      "explanation": "Celebrating milestones teaches your brain to crave success instead of nicotine."
+    },
+    {
+      "question": "Have you told your friends you’re quitting?",
+      "user_answer": "",
+      "fun_fact": "Verbal commitment makes relapse socially costly — accountability keeps you honest."
+    },
+    {
+      "question": "What’s your biggest fear about quitting?",
+      "user_answer": "",
+      "fun_fact": "Fear fades faster than withdrawal. Both lose power once you stop feeding them."
+    },
+    {
+      "question": "What’s one thing you gained since starting to quit?",
+      "user_answer": "",
+      "fun_fact": "Health, confidence, and control return faster than most people expect — within 72 hours."
+    },
+    {
+      "question": "How does your body feel after a few smoke-free days?",
+      "user_answer": "",
+      "fun_fact": "Circulation improves by 20% in 48 hours — your body’s thanking you already."
+    },
+    {
+      "question": "Do you believe addiction defines you?",
+      "user_answer": "",
+      "fun_fact": "Addiction is behavior, not identity. Once you separate the two, quitting gets easier."
+    },
+    {
+      "question": "What motivates you most — health, money, or control?",
+      "user_answer": "",
+      "fun_fact": "Identifying your core motivator keeps you grounded when willpower runs low."
+    },
+    {
+      "question": "Do you track your smoke-free streak daily?",
+      "user_answer": "",
+      "explanation": "Habit tracking creates accountability loops — the brain loves visible progress."
+    },
+    {
+      "question": "What do you tell yourself when you almost give in?",
+      "user_answer": "",
+      "fun_fact": "Internal dialogue shapes endurance — positive self-talk literally rewires neural patterns."
+    },
+    {
+      "question": "What’s your toughest hour of the day?",
+      "user_answer": "",
+      "fun_fact": "Timing cravings helps the app optimize notifications when you need support most."
+    },
+    {
+      "question": "How much have you saved since starting this app?",
+      "user_answer": "",
+      "fun_fact": "Savings visualization in quitting apps triggers the same dopamine cycle nicotine does."
+    },
+    {
+      "question": "What do you miss most about smoking?",
+      "user_answer": "",
+      "fun_fact": "Missing the ritual, not the smoke, is common. Replace the act — not the addiction."
+    },
+    {
+      "question": "Do you breathe deeper now than when you smoked?",
+      "user_answer": "",
+      "fun_fact": "Lung function improves up to 10% within three months of quitting."
+    },
+    {
+      "question": "Who inspired you to quit?",
+      "user_answer": "",
+      "fun_fact": "Inspiration grounded in personal connection increases emotional commitment to quitting."
+    },
+    {
+      "question": "What habit are you building to replace nicotine?",
+      "user_answer": "",
+      "explanation": "Habits don’t vanish — they get replaced. Control the swap, or the old one sneaks back."
+    },
+    {
+      "question": "Do you feel more energetic since reducing your intake?",
+      "user_answer": "",
+      "fun_fact": "Oxygen efficiency rises as nicotine leaves your system — energy returns fast."
+    },
+    {
+      "question": "Have you shared your progress with others?",
+      "user_answer": "",
+      "fun_fact": "Public wins solidify internal progress — sharing reinforces pride and discipline."
+    },
+    {
+      "question": "What’s your favorite achievement unlocked so far?",
+      "user_answer": "",
+      "fun_fact": "Achievement systems mimic game reward loops — powerful psychology for habit formation."
+    },
+    {
+      "question": "How do you celebrate smoke-free milestones?",
+      "user_answer": "",
+      "fun_fact": "Reward reinforcement is critical. Your brain loves trophies — give it one for staying clean."
+    },
+    {
+      "question": "Do you sleep better since cutting down?",
+      "user_answer": "",
+      "fun_fact": "Nicotine disrupts REM cycles — quitting brings deeper, restorative sleep."
+    },
+    {
+      "question": "How many days have you stayed clean in a row?",
+      "user_answer": "",
+      "explanation": "Tracking streaks is a psychological anchor — it’s harder to break long progress chains."
+    },
+    {
+      "question": "Do you feel proud when you skip a smoke?",
+      "user_answer": "",
+      "fun_fact": "That pride is neurochemical — dopamine for victory instead of nicotine for comfort."
+    },
+    {
+      "question": "What’s your plan if you relapse?",
+      "user_answer": "",
+      "fun_fact": "Planning for relapse recovery keeps you from spiraling — resilience is preparation."
+    },
+    {
+      "question": "Do you understand how nicotine manipulates your brain?",
+      "user_answer": "",
+      "fun_fact": "Nicotine mimics acetylcholine, hijacking attention and reward systems — now you know the enemy."
+    },
+    {
+      "question": "How would you describe life without nicotine?",
+      "user_answer": "",
+      "fun_fact": "Most ex-smokers report a 30% increase in life satisfaction within six months."
+    },
+    {
+      "question": "Would you ever help someone else quit after this?",
+      "user_answer": "",
+      "fun_fact": "Mentorship reinforces your own discipline — helping others keeps your purpose sharp."
+    }
+  ]
+}

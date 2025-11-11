@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.quitsmoking.app",
+    "sha256_cert_fingerprints": [
+      "5B:B1:B9:ED:71:C0:28:19:C6:E8:17:86:D7:A1:05:E2:64:3E:0A:39:05:F0:EA:D8:EC:C2:09:D5:5B:7A:34:92"
+    ]
+  }
+}]
