@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
-        private const val WEB_APP_URL = "https://daliborboldissid.github.io/qswf/"
+        private const val WEB_APP_URL = "https://daliborboldissid.github.io/qswfv2/"
         private const val NOTIFICATION_PERMISSION_CODE = 123
     }
 
