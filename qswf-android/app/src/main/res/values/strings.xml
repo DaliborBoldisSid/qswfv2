@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QSWF</string>
+    <string name="exact_alarm_permission_prompt">To deliver timely reminders, allow QSWF to schedule exact alarms.</string>
 </resources>

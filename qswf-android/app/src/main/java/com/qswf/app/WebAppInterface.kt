@@ -1,5 +1,6 @@
 package com.qswf.app
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.webkit.JavascriptInterface
@@ -18,6 +19,18 @@ class WebAppInterface(
 ) {
     companion object {
         private const val TAG = "WebAppInterface"
+    }
+
+    /**
+     * Ensure the app can schedule exact alarms (Android 12+ requirement)
+     */
+    @JavascriptInterface
+    fun ensureExactAlarmPermission(): Boolean {
+        return if (context is Activity) {
+            NotificationHelper.ensureExactAlarmPermission(context)
+        } else {
+            false
+        }
     }
 
     /**

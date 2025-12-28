@@ -10,15 +10,13 @@
  * @returns {boolean} True if running in Android WebView
  */
 export function isAndroidWebView() {
-  try {
-    // Check if Android interface is available
-    return typeof window.Android !== 'undefined' &&
-           typeof window.Android.isAndroid === 'function' &&
-           window.Android.isAndroid();
-  } catch (error) {
-    console.error('Error checking Android WebView:', error);
-    return false;
-  }
+	try {
+		// Check if Android interface is available
+		return typeof window.Android !== "undefined" && typeof window.Android.isAndroid === "function" && window.Android.isAndroid();
+	} catch (error) {
+		console.error("Error checking Android WebView:", error);
+		return false;
+	}
 }
 
 /**
@@ -26,14 +24,14 @@ export function isAndroidWebView() {
  * @returns {number|null} Android SDK version or null if not in WebView
  */
 export function getAndroidVersion() {
-  try {
-    if (isAndroidWebView() && typeof window.Android.getAndroidVersion === 'function') {
-      return window.Android.getAndroidVersion();
-    }
-  } catch (error) {
-    console.error('Error getting Android version:', error);
-  }
-  return null;
+	try {
+		if (isAndroidWebView() && typeof window.Android.getAndroidVersion === "function") {
+			return window.Android.getAndroidVersion();
+		}
+	} catch (error) {
+		console.error("Error getting Android version:", error);
+	}
+	return null;
 }
 
 /**
@@ -41,14 +39,14 @@ export function getAndroidVersion() {
  * @returns {boolean} True if permission is granted
  */
 export function hasAndroidNotificationPermission() {
-  try {
-    if (isAndroidWebView() && typeof window.Android.hasNotificationPermission === 'function') {
-      return window.Android.hasNotificationPermission();
-    }
-  } catch (error) {
-    console.error('Error checking notification permission:', error);
-  }
-  return false;
+	try {
+		if (isAndroidWebView() && typeof window.Android.hasNotificationPermission === "function") {
+			return window.Android.hasNotificationPermission();
+		}
+	} catch (error) {
+		console.error("Error checking notification permission:", error);
+	}
+	return false;
 }
 
 /**
@@ -60,20 +58,26 @@ export function hasAndroidNotificationPermission() {
  * @returns {boolean} True if scheduled successfully
  */
 export function scheduleAndroidNotification(title, body, delayMs, notificationId) {
-  try {
-    if (isAndroidWebView() && typeof window.Android.scheduleNotification === 'function') {
-      if (notificationId !== undefined) {
-        window.Android.scheduleNotification(title, body, delayMs, notificationId);
-      } else {
-        window.Android.scheduleNotification(title, body, delayMs);
-      }
-      console.log(`[Android] Scheduled notification: ${title} in ${delayMs}ms`);
-      return true;
-    }
-  } catch (error) {
-    console.error('Error scheduling Android notification:', error);
-  }
-  return false;
+	try {
+		if (isAndroidWebView() && typeof window.Android.scheduleNotification === "function") {
+			if (typeof window.Android.ensureExactAlarmPermission === "function") {
+				const hasExactAlarm = window.Android.ensureExactAlarmPermission();
+				if (!hasExactAlarm) {
+					console.warn("[Android] Exact alarm permission not granted. Notification may be delayed.");
+				}
+			}
+			if (notificationId !== undefined) {
+				window.Android.scheduleNotification(title, body, delayMs, notificationId);
+			} else {
+				window.Android.scheduleNotification(title, body, delayMs);
+			}
+			console.log(`[Android] Scheduled notification: ${title} in ${delayMs}ms`);
+			return true;
+		}
+	} catch (error) {
+		console.error("Error scheduling Android notification:", error);
+	}
+	return false;
 }
 
 /**
@@ -82,16 +86,16 @@ export function scheduleAndroidNotification(title, body, delayMs, notificationId
  * @returns {boolean} True if cancelled successfully
  */
 export function cancelAndroidNotification(notificationId) {
-  try {
-    if (isAndroidWebView() && typeof window.Android.cancelNotification === 'function') {
-      window.Android.cancelNotification(notificationId);
-      console.log(`[Android] Cancelled notification: ${notificationId}`);
-      return true;
-    }
-  } catch (error) {
-    console.error('Error cancelling Android notification:', error);
-  }
-  return false;
+	try {
+		if (isAndroidWebView() && typeof window.Android.cancelNotification === "function") {
+			window.Android.cancelNotification(notificationId);
+			console.log(`[Android] Cancelled notification: ${notificationId}`);
+			return true;
+		}
+	} catch (error) {
+		console.error("Error cancelling Android notification:", error);
+	}
+	return false;
 }
 
 /**
@@ -99,16 +103,16 @@ export function cancelAndroidNotification(notificationId) {
  * @returns {boolean} True if cancelled successfully
  */
 export function cancelAllAndroidNotifications() {
-  try {
-    if (isAndroidWebView() && typeof window.Android.cancelAllNotifications === 'function') {
-      window.Android.cancelAllNotifications();
-      console.log('[Android] Cancelled all notifications');
-      return true;
-    }
-  } catch (error) {
-    console.error('Error cancelling all Android notifications:', error);
-  }
-  return false;
+	try {
+		if (isAndroidWebView() && typeof window.Android.cancelAllNotifications === "function") {
+			window.Android.cancelAllNotifications();
+			console.log("[Android] Cancelled all notifications");
+			return true;
+		}
+	} catch (error) {
+		console.error("Error cancelling all Android notifications:", error);
+	}
+	return false;
 }
 
 /**
@@ -118,16 +122,16 @@ export function cancelAllAndroidNotifications() {
  * @returns {boolean} True if shown successfully
  */
 export function showAndroidNotification(title, body) {
-  try {
-    if (isAndroidWebView() && typeof window.Android.showNotification === 'function') {
-      window.Android.showNotification(title, body);
-      console.log(`[Android] Showed notification: ${title}`);
-      return true;
-    }
-  } catch (error) {
-    console.error('Error showing Android notification:', error);
-  }
-  return false;
+	try {
+		if (isAndroidWebView() && typeof window.Android.showNotification === "function") {
+			window.Android.showNotification(title, body);
+			console.log(`[Android] Showed notification: ${title}`);
+			return true;
+		}
+	} catch (error) {
+		console.error("Error showing Android notification:", error);
+	}
+	return false;
 }
 
 /**
@@ -135,13 +139,13 @@ export function showAndroidNotification(title, body) {
  * @param {string} message - Message to display
  */
 export function showAndroidToast(message) {
-  try {
-    if (isAndroidWebView() && typeof window.Android.showToast === 'function') {
-      window.Android.showToast(message);
-    }
-  } catch (error) {
-    console.error('Error showing Android toast:', error);
-  }
+	try {
+		if (isAndroidWebView() && typeof window.Android.showToast === "function") {
+			window.Android.showToast(message);
+		}
+	} catch (error) {
+		console.error("Error showing Android toast:", error);
+	}
 }
 
 /**
@@ -149,14 +153,14 @@ export function showAndroidToast(message) {
  * @param {string} message - Message to log
  * @param {string} level - Log level: 'd', 'i', 'w', 'e'
  */
-export function logToAndroid(message, level = 'd') {
-  try {
-    if (isAndroidWebView() && typeof window.Android.log === 'function') {
-      window.Android.log(message, level);
-    }
-  } catch (error) {
-    // Silent fail for logging
-  }
+export function logToAndroid(message, level = "d") {
+	try {
+		if (isAndroidWebView() && typeof window.Android.log === "function") {
+			window.Android.log(message, level);
+		}
+	} catch (error) {
+		// Silent fail for logging
+	}
 }
 
 /**
@@ -164,13 +168,13 @@ export function logToAndroid(message, level = 'd') {
  * @param {number} durationMs - Duration in milliseconds (default: 200)
  */
 export function vibrateAndroid(durationMs = 200) {
-  try {
-    if (isAndroidWebView() && typeof window.Android.vibrate === 'function') {
-      window.Android.vibrate(durationMs);
-    }
-  } catch (error) {
-    console.error('Error vibrating device:', error);
-  }
+	try {
+		if (isAndroidWebView() && typeof window.Android.vibrate === "function") {
+			window.Android.vibrate(durationMs);
+		}
+	} catch (error) {
+		console.error("Error vibrating device:", error);
+	}
 }
 
 /**
@@ -178,36 +182,36 @@ export function vibrateAndroid(durationMs = 200) {
  * @returns {Object|null} Version info object or null
  */
 export function getAndroidAppVersion() {
-  try {
-    if (isAndroidWebView() && typeof window.Android.getAppVersion === 'function') {
-      const versionJson = window.Android.getAppVersion();
-      return JSON.parse(versionJson);
-    }
-  } catch (error) {
-    console.error('Error getting Android app version:', error);
-  }
-  return null;
+	try {
+		if (isAndroidWebView() && typeof window.Android.getAppVersion === "function") {
+			const versionJson = window.Android.getAppVersion();
+			return JSON.parse(versionJson);
+		}
+	} catch (error) {
+		console.error("Error getting Android app version:", error);
+	}
+	return null;
 }
 
 // Expose utility for navigation from deep links
-if (typeof window !== 'undefined') {
-  window.navigateToStats = () => {
-    console.log('[Android] Deep link navigation to Stats');
-    // This will be called by MainActivity when deep link is triggered
-    // The actual navigation will be handled by the app's router
-    const event = new CustomEvent('android-navigate', { detail: { page: 'stats' } });
-    window.dispatchEvent(event);
-  };
+if (typeof window !== "undefined") {
+	window.navigateToStats = () => {
+		console.log("[Android] Deep link navigation to Stats");
+		// This will be called by MainActivity when deep link is triggered
+		// The actual navigation will be handled by the app's router
+		const event = new CustomEvent("android-navigate", { detail: { page: "stats" } });
+		window.dispatchEvent(event);
+	};
 
-  window.navigateToAchievements = () => {
-    console.log('[Android] Deep link navigation to Achievements');
-    const event = new CustomEvent('android-navigate', { detail: { page: 'achievements' } });
-    window.dispatchEvent(event);
-  };
+	window.navigateToAchievements = () => {
+		console.log("[Android] Deep link navigation to Achievements");
+		const event = new CustomEvent("android-navigate", { detail: { page: "achievements" } });
+		window.dispatchEvent(event);
+	};
 
-  window.onNotificationPermissionGranted = () => {
-    console.log('[Android] Notification permission granted');
-    const event = new CustomEvent('android-permission-granted', { detail: { permission: 'notifications' } });
-    window.dispatchEvent(event);
-  };
+	window.onNotificationPermissionGranted = () => {
+		console.log("[Android] Notification permission granted");
+		const event = new CustomEvent("android-permission-granted", { detail: { permission: "notifications" } });
+		window.dispatchEvent(event);
+	};
 }

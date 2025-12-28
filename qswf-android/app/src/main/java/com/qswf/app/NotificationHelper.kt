@@ -1,6 +1,7 @@
 package com.qswf.app
 
 import android.Manifest
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -12,10 +13,13 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import android.net.Uri
+import android.widget.Toast
 
 class NotificationHelper(private val context: Context) {
 
@@ -28,6 +32,33 @@ class NotificationHelper(private val context: Context) {
         const val EXTRA_TITLE = "notification_title"
         const val EXTRA_MESSAGE = "notification_message"
         const val EXTRA_NOTIFICATION_ID = "notification_id"
+
+        fun ensureExactAlarmPermission(activity: Activity): Boolean {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                val alarmManager = activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                val canSchedule = alarmManager.canScheduleExactAlarms()
+                if (!canSchedule) {
+                    Toast.makeText(
+                        activity,
+                        activity.getString(R.string.exact_alarm_permission_prompt),
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
+                        data = Uri.parse("package:${activity.packageName}")
+                    }
+
+                    try {
+                        activity.startActivity(intent)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Unable to open exact alarm settings", e)
+                    }
+
+                    return false
+                }
+            }
+            return true
+        }
     }
 
     private val notificationManager: NotificationManager
@@ -83,6 +114,9 @@ class NotificationHelper(private val context: Context) {
         val triggerAtMillis = System.currentTimeMillis() + delayMs
 
         try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                Log.w(TAG, "Exact alarm permission not granted. Notifications may be delayed.")
+            }
             // Use exact alarm for precise timing
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 alarmManager.setExactAndAllowWhileIdle(

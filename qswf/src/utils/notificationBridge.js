@@ -7,13 +7,13 @@
  */
 
 import {
-  isAndroidWebView,
-  scheduleAndroidNotification,
-  cancelAndroidNotification,
-  cancelAllAndroidNotifications,
-  showAndroidNotification,
-  hasAndroidNotificationPermission,
-} from './androidBridge.js';
+	isAndroidWebView,
+	scheduleAndroidNotification,
+	cancelAndroidNotification,
+	cancelAllAndroidNotifications,
+	showAndroidNotification,
+	hasAndroidNotificationPermission,
+} from "./androidBridge.js";
 
 // Storage for web notification timeouts
 const scheduledNotifications = new Map();
@@ -23,18 +23,18 @@ const scheduledNotifications = new Map();
  * @returns {Promise<boolean>} True if notifications are available
  */
 export async function checkNotificationPermission() {
-  // Check if running in Android WebView
-  if (isAndroidWebView()) {
-    return hasAndroidNotificationPermission();
-  }
+	// Check if running in Android WebView
+	if (isAndroidWebView()) {
+		return hasAndroidNotificationPermission();
+	}
 
-  // Check web notifications
-  if (!('Notification' in window)) {
-    console.warn('Notifications not supported in this browser');
-    return false;
-  }
+	// Check web notifications
+	if (!("Notification" in window)) {
+		console.warn("Notifications not supported in this browser");
+		return false;
+	}
 
-  return Notification.permission === 'granted';
+	return Notification.permission === "granted";
 }
 
 /**
@@ -42,29 +42,29 @@ export async function checkNotificationPermission() {
  * @returns {Promise<boolean>} True if permission granted
  */
 export async function requestNotificationPermission() {
-  // In Android WebView, permission is handled natively
-  if (isAndroidWebView()) {
-    // Android app handles permission request on startup
-    return hasAndroidNotificationPermission();
-  }
+	// In Android WebView, permission is handled natively
+	if (isAndroidWebView()) {
+		// Android app handles permission request on startup
+		return hasAndroidNotificationPermission();
+	}
 
-  // Request web notification permission
-  if (!('Notification' in window)) {
-    console.warn('Notifications not supported in this browser');
-    return false;
-  }
+	// Request web notification permission
+	if (!("Notification" in window)) {
+		console.warn("Notifications not supported in this browser");
+		return false;
+	}
 
-  if (Notification.permission === 'granted') {
-    return true;
-  }
+	if (Notification.permission === "granted") {
+		return true;
+	}
 
-  try {
-    const permission = await Notification.requestPermission();
-    return permission === 'granted';
-  } catch (error) {
-    console.error('Error requesting notification permission:', error);
-    return false;
-  }
+	try {
+		const permission = await Notification.requestPermission();
+		return permission === "granted";
+	} catch (error) {
+		console.error("Error requesting notification permission:", error);
+		return false;
+	}
 }
 
 /**
@@ -78,41 +78,47 @@ export async function requestNotificationPermission() {
  * @returns {Promise<boolean>} True if scheduled successfully
  */
 export async function scheduleNotification({ title, body, delayMs, id, tag }) {
-  const notificationId = id || generateNotificationId();
+	const notificationId = id || generateNotificationId();
 
-  // Use Android native notifications if available
-  if (isAndroidWebView()) {
-    return scheduleAndroidNotification(title, body, delayMs, notificationId);
-  }
+	// Use Android native notifications if available
+	if (isAndroidWebView()) {
+		if (typeof window.Android?.ensureExactAlarmPermission === "function") {
+			const granted = window.Android.ensureExactAlarmPermission();
+			if (!granted) {
+				console.warn("[Android] Exact alarm permission not granted. Attempting to schedule anyway.");
+			}
+		}
+		return scheduleAndroidNotification(title, body, delayMs, notificationId);
+	}
 
-  // Use web notifications
-  const hasPermission = await checkNotificationPermission();
-  if (!hasPermission) {
-    console.warn('Notification permission not granted');
-    return false;
-  }
+	// Use web notifications
+	const hasPermission = await checkNotificationPermission();
+	if (!hasPermission) {
+		console.warn("Notification permission not granted");
+		return false;
+	}
 
-  // Clear any existing notification with this ID
-  if (scheduledNotifications.has(notificationId)) {
-    clearTimeout(scheduledNotifications.get(notificationId).timeoutId);
-  }
+	// Clear any existing notification with this ID
+	if (scheduledNotifications.has(notificationId)) {
+		clearTimeout(scheduledNotifications.get(notificationId).timeoutId);
+	}
 
-  // Schedule the notification
-  const timeoutId = setTimeout(() => {
-    showWebNotification(title, body, tag);
-    scheduledNotifications.delete(notificationId);
-  }, delayMs);
+	// Schedule the notification
+	const timeoutId = setTimeout(() => {
+		showWebNotification(title, body, tag);
+		scheduledNotifications.delete(notificationId);
+	}, delayMs);
 
-  scheduledNotifications.set(notificationId, {
-    timeoutId,
-    title,
-    body,
-    scheduledAt: Date.now(),
-    showAt: Date.now() + delayMs,
-  });
+	scheduledNotifications.set(notificationId, {
+		timeoutId,
+		title,
+		body,
+		scheduledAt: Date.now(),
+		showAt: Date.now() + delayMs,
+	});
 
-  console.log(`[Web] Scheduled notification: ${title} in ${delayMs}ms (ID: ${notificationId})`);
-  return true;
+	console.log(`[Web] Scheduled notification: ${title} in ${delayMs}ms (ID: ${notificationId})`);
+	return true;
 }
 
 /**
@@ -123,19 +129,19 @@ export async function scheduleNotification({ title, body, delayMs, id, tag }) {
  * @returns {Promise<boolean>} True if shown successfully
  */
 export async function showNotification(title, body, tag) {
-  // Use Android native notifications if available
-  if (isAndroidWebView()) {
-    return showAndroidNotification(title, body);
-  }
+	// Use Android native notifications if available
+	if (isAndroidWebView()) {
+		return showAndroidNotification(title, body);
+	}
 
-  // Use web notifications
-  const hasPermission = await checkNotificationPermission();
-  if (!hasPermission) {
-    console.warn('Notification permission not granted');
-    return false;
-  }
+	// Use web notifications
+	const hasPermission = await checkNotificationPermission();
+	if (!hasPermission) {
+		console.warn("Notification permission not granted");
+		return false;
+	}
 
-  return showWebNotification(title, body, tag);
+	return showWebNotification(title, body, tag);
 }
 
 /**
@@ -146,31 +152,31 @@ export async function showNotification(title, body, tag) {
  * @returns {boolean} True if shown successfully
  */
 function showWebNotification(title, body, tag) {
-  try {
-    const notification = new Notification(title, {
-      body,
-      tag: tag || 'qswf-notification',
-      icon: '/icon-192.png',
-      badge: '/icon-192.png',
-      vibrate: [200, 100, 200],
-      requireInteraction: false,
-    });
+	try {
+		const notification = new Notification(title, {
+			body,
+			tag: tag || "qswf-notification",
+			icon: "/icon-192.png",
+			badge: "/icon-192.png",
+			vibrate: [200, 100, 200],
+			requireInteraction: false,
+		});
 
-    // Auto-close after 10 seconds
-    setTimeout(() => notification.close(), 10000);
+		// Auto-close after 10 seconds
+		setTimeout(() => notification.close(), 10000);
 
-    // Handle notification click
-    notification.onclick = () => {
-      window.focus();
-      notification.close();
-    };
+		// Handle notification click
+		notification.onclick = () => {
+			window.focus();
+			notification.close();
+		};
 
-    console.log(`[Web] Showed notification: ${title}`);
-    return true;
-  } catch (error) {
-    console.error('Error showing web notification:', error);
-    return false;
-  }
+		console.log(`[Web] Showed notification: ${title}`);
+		return true;
+	} catch (error) {
+		console.error("Error showing web notification:", error);
+		return false;
+	}
 }
 
 /**
@@ -179,21 +185,21 @@ function showWebNotification(title, body, tag) {
  * @returns {boolean} True if cancelled successfully
  */
 export function cancelNotification(notificationId) {
-  // Cancel Android notification
-  if (isAndroidWebView()) {
-    return cancelAndroidNotification(notificationId);
-  }
+	// Cancel Android notification
+	if (isAndroidWebView()) {
+		return cancelAndroidNotification(notificationId);
+	}
 
-  // Cancel web notification timeout
-  if (scheduledNotifications.has(notificationId)) {
-    const notification = scheduledNotifications.get(notificationId);
-    clearTimeout(notification.timeoutId);
-    scheduledNotifications.delete(notificationId);
-    console.log(`[Web] Cancelled notification: ${notificationId}`);
-    return true;
-  }
+	// Cancel web notification timeout
+	if (scheduledNotifications.has(notificationId)) {
+		const notification = scheduledNotifications.get(notificationId);
+		clearTimeout(notification.timeoutId);
+		scheduledNotifications.delete(notificationId);
+		console.log(`[Web] Cancelled notification: ${notificationId}`);
+		return true;
+	}
 
-  return false;
+	return false;
 }
 
 /**
@@ -201,20 +207,20 @@ export function cancelNotification(notificationId) {
  * @returns {boolean} True if cancelled successfully
  */
 export function cancelAllNotifications() {
-  // Cancel Android notifications
-  if (isAndroidWebView()) {
-    return cancelAllAndroidNotifications();
-  }
+	// Cancel Android notifications
+	if (isAndroidWebView()) {
+		return cancelAllAndroidNotifications();
+	}
 
-  // Cancel all web notification timeouts
-  for (const [id, notification] of scheduledNotifications) {
-    clearTimeout(notification.timeoutId);
-  }
+	// Cancel all web notification timeouts
+	for (const [id, notification] of scheduledNotifications) {
+		clearTimeout(notification.timeoutId);
+	}
 
-  const count = scheduledNotifications.size;
-  scheduledNotifications.clear();
-  console.log(`[Web] Cancelled ${count} notifications`);
-  return true;
+	const count = scheduledNotifications.size;
+	scheduledNotifications.clear();
+	console.log(`[Web] Cancelled ${count} notifications`);
+	return true;
 }
 
 /**
@@ -222,20 +228,20 @@ export function cancelAllNotifications() {
  * @returns {Array} Array of scheduled notification info
  */
 export function getScheduledNotifications() {
-  // Only available for web notifications
-  if (isAndroidWebView()) {
-    console.warn('getScheduledNotifications not available in Android WebView');
-    return [];
-  }
+	// Only available for web notifications
+	if (isAndroidWebView()) {
+		console.warn("getScheduledNotifications not available in Android WebView");
+		return [];
+	}
 
-  return Array.from(scheduledNotifications.entries()).map(([id, notification]) => ({
-    id,
-    title: notification.title,
-    body: notification.body,
-    scheduledAt: notification.scheduledAt,
-    showAt: notification.showAt,
-    remainingMs: Math.max(0, notification.showAt - Date.now()),
-  }));
+	return Array.from(scheduledNotifications.entries()).map(([id, notification]) => ({
+		id,
+		title: notification.title,
+		body: notification.body,
+		scheduledAt: notification.scheduledAt,
+		showAt: notification.showAt,
+		remainingMs: Math.max(0, notification.showAt - Date.now()),
+	}));
 }
 
 /**
@@ -243,7 +249,7 @@ export function getScheduledNotifications() {
  * @returns {number} Unique ID
  */
 function generateNotificationId() {
-  return Math.floor(Math.random() * 1000000000);
+	return Math.floor(Math.random() * 1000000000);
 }
 
 /**
@@ -251,7 +257,7 @@ function generateNotificationId() {
  * @returns {boolean} True if in Android WebView
  */
 export function isNativeAndroid() {
-  return isAndroidWebView();
+	return isAndroidWebView();
 }
 
 // Export for debugging
